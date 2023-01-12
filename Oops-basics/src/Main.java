@@ -48,7 +48,7 @@ class Student  {
         System.out.println("Roll number: "+this.roll_no);
         System.out.println("----Marks----");
         display_marks();
-        get_gpa();
+        
     }
 
 
@@ -89,18 +89,18 @@ class Student  {
 }
 
 
-void get_gpa(){
-    for (int i = 0; i < subs.length; i++) {
-        sub_points.put(subs[i],points[i]);
-    }
-
-    for (int i = 0; i <grades.length; i++) {
-        grade_points.put(grades[i],g_points[i]);
-    }
-
-    for (int i = 0; i < stud_grades.length ; i++) {
-        
-    }
+//void get_gpa(){
+//    for (int i = 0; i < subs.length; i++) {
+//        sub_points.put(subs[i],points[i]);
+//    }
+//
+//    for (int i = 0; i <grades.length; i++) {
+//        grade_points.put(grades[i],g_points[i]);
+//    }
+//
+//    for (int i = 0; i < stud_grades.length ; i++) {
+//
+//    }
 
 
 
