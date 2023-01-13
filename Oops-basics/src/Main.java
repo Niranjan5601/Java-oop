@@ -1,10 +1,7 @@
 import javafx.scene.SubScene;
 
 import javax.security.auth.Subject;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,15 +27,16 @@ class Student  {
     String name ;
     int roll_no;
     String [] subs = {"maths","science","social science","english"};
-    String [] grades = {"A+","A","B+","B","C","F"};
-    int[] marks = new int[4];
-    String [] stud_grades = new String[4];
+
+
 
     Map<String,Integer> sub_points = new HashMap<>();
-    int [] points = {5,3,4,3};
 
-    Map<String,Integer> grade_points = new HashMap<>();
-    int[] g_points = {5,4,3,2,1,0};
+    int[] marks = new int[4];
+
+
+    ArrayList<GPA> grade_points = new ArrayList();
+
 
 
 
@@ -53,10 +51,23 @@ class Student  {
 
 
     void display_marks(){
+
+
+        sub_points.put("maths", 5);
+        sub_points.put("science", 4);
+        sub_points.put("social science", 3);
+        sub_points.put("english", 2);
+
         grades_store(marks);
+        int totalgrade=0;
+        int combined=0;
         for (int i = 0; i < marks.length; i++) {
-            System.out.println(subs[i]+"\t"+marks[i]+"\t"+ stud_grades[i]);
+            System.out.println(subs[i]+"\t"+marks[i]+"\t"+ grade_points.get(i).grade);
+            combined +=sub_points.get(subs[i])*grade_points.get(i).score;
+            totalgrade=totalgrade+sub_points.get(subs[i]);
         }
+        int total =combined/totalgrade;
+        System.out.println("GPA of the student is: \t" + total);
     }
 
 
@@ -66,51 +77,47 @@ class Student  {
 
         for (int j = 0; j < marks.length; j++) {
 
-
+            GPA gpa;
             if (marks[j] >= 90) {
-                this.stud_grades[j] = "A+";
-
+                gpa=new GPA("A+",5);
             } else if (marks[j] >= 80 && marks[j] < 90) {
-                this.stud_grades[j] = "A";
+                 gpa=new GPA("A",4);
             } else if (marks[j] >= 70 && marks[j]< 80) {
-                this.stud_grades[j] ="B+";
+                  gpa=new GPA("B+",3);
             } else if (marks[j] >= 60 && marks[j] < 70) {
-                this.stud_grades[j] = "B";
+                  gpa=new GPA("B",2);
             }
             else if (marks[j] >= 50 && marks[j] < 60) {
-                this.stud_grades[j] = "C";
+                gpa=new GPA("C",1);
             }
             else {
-                this.stud_grades[j] = "F";
+                gpa=new GPA("F",0);
             }
+            grade_points.add(gpa);
         }
 
 
 }
 
 
-//void get_gpa(){
-//    for (int i = 0; i < subs.length; i++) {
-//        sub_points.put(subs[i],points[i]);
-//    }
-//
-//    for (int i = 0; i <grades.length; i++) {
-//        grade_points.put(grades[i],g_points[i]);
-//    }
-//
-//    for (int i = 0; i < stud_grades.length ; i++) {
-//
-//    }
-
-
-
-
 }
 
 
 
+class GPA
+{
+    String grade;
+    int score;
 
+
+
+    public GPA(String grade, int score)
+    {
+        this.grade=grade;
+        this.score=score;
+    }
 }
+
 
 
 
