@@ -25,13 +25,13 @@ public class Sheet2 {
             if (line.charAt(i) == ' '){
                 sb.append(' ');
 
+
             }
             else {
                 value = hm.get(low_lineline.charAt(i))+ hm.get(key.charAt(j));
-
-
-
-
+                if (value > 26){
+                    value = value % 26;
+                }
                 for(Map.Entry<Character, Integer> entry: hm.entrySet()) {
                     if(entry.getValue() == value) {
                         sb.append(entry.getKey());
@@ -39,7 +39,12 @@ public class Sheet2 {
                     }
                 }
             }
-            j++;
+           if (line.charAt(i) == ' '){
+               j=0;
+           }
+           else {
+               j++;
+           }
 
 
 
