@@ -28,6 +28,10 @@ public class Sheet2 {
             }
             else {
                 value = hm.get(low_lineline.charAt(i))+ hm.get(key.charAt(j));
+
+
+
+
                 for(Map.Entry<Character, Integer> entry: hm.entrySet()) {
                     if(entry.getValue() == value) {
                         sb.append(entry.getKey());
@@ -36,6 +40,14 @@ public class Sheet2 {
                 }
             }
             j++;
+
+
+
+
+
+
+
+
         }
         System.out.println(sb);
     }
