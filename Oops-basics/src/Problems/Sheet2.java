@@ -1,3 +1,4 @@
+
 package Problems;
 
 import java.util.HashMap;
@@ -39,12 +40,12 @@ public class Sheet2 {
                     }
                 }
             }
-           if (line.charAt(i) == ' '){
-               j=0;
-           }
-           else {
-               j++;
-           }
+            if (line.charAt(i) == ' '){
+                j=0;
+            }
+            else {
+                j++;
+            }
 
 
 
