@@ -1,0 +1,4 @@
+A
+applm
+Hello
+From console
